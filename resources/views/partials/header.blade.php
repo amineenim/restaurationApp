@@ -6,13 +6,13 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item {{Route::current()->getName() == 'home' ? "active" : ''}}">
           <a class="nav-link" href="{{ route('home')}}">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{Route::current()->getName() == 'menu' ? "active" : ''}}">
           <a class="nav-link" href="{{ route('menu') }}">Our Menu</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{Route::current()->getName() == 'reservation.create' ? "active" : ''}}">
           <a class="nav-link " href="{{ route('reservation.create') }}">Make Reservation</a>
         </li>
       </ul>
