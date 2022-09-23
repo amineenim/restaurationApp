@@ -74,3 +74,24 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.reservations-navigation{
+    border : 1px solid black;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    align-items: center;
+    margin-top: 25px;
+    margin-left: 10px;
+    width: 50%;
+}
+
+.head-image{
+    margin-bottom: 20px;
+}
+
+.reservation-index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

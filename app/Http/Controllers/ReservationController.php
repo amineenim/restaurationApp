@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    /**
+     * Show the page that diplays all resources.//reservation
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //retreive reservations
+        $reservations = Reservation::simplePaginate(6);
+        return view('reservation.index',['reservations' => $reservations]);
+    }
+
   
     /**
      * Show the form for creating a new resource.//reservation

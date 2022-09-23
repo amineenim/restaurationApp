@@ -43,6 +43,7 @@
             <small>Openning Hours are from 9:00 to 22:30</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ route('reservation.index')}}" class="btn btn-primary">Check all Reservations</a>
     </form>
 </div>
 
