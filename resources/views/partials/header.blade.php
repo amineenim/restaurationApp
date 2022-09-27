@@ -17,4 +17,16 @@
         </li>
       </ul>
     </div>
+    <div class="auth-buttons">
+      @if(Auth::check())
+      <form class="form" method="POST" action="{{route('logout')}}">
+        @csrf
+        <button class="btn btn-success" type="submit">Logout</button>
+      </form>
+      @endif
+      @if(!Auth::check())
+      <a class="btn btn-success" href="{{route('register')}} ">Register</a>
+      <a class="btn btn-primary" href="{{route('login')}}">Login</a>
+      @endif
+    </div>
   </nav>

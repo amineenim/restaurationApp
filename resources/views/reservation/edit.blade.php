@@ -7,15 +7,15 @@
 </div>
 @endforeach
 @endif
-<div class="reservation-edit">
+<div class="form-header">
+    <h4>Make Modifications to your reservation :</h4>
+    <a class="btn btn-primary" href="{{route('home')}}">Back Home</a>
+</div>
+<div class="form">
     <form method="POST" action=" {{route('reservation.update',$reservation->id)}} ">
         @csrf
         @method('PUT')
         <div class="form-group">
-          <div class="form-header">
-            <h4>Make Modifications to your reservation :</h4>
-            <a class="btn btn-primary" href="{{route('home')}}">Back Home</a>
-          </div>
           <label for="name">Name :</label>
           <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your full Name"
           value="{{$reservation->name}}">

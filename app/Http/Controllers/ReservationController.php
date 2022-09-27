@@ -54,7 +54,7 @@ class ReservationController extends Controller
         $reservation->email = $request->email;
         $reservation->phone = $request->phone;
         $reservation->guests=$request->guests;
-        $reservation->reservationdate= date('Y-m-d',$request->restervationdate);
+        $reservation->reservationdate= date('Y-m-d',$request->reservationdate);
         $reservation->reservationtime= $request->reservationtime;
         //save the new creataed instance to database table
         $reservation->save();

@@ -10,14 +10,15 @@
   </ul>
 </div>
 @endif
+<div class="form-header">
+  <h4>Thinking about visiting us, Reserve Your Table now !</h4>
+  <a class="btn btn-primary" href="{{route('home')}}">Back Home</a>
+  <a href="{{ route('reservation.index')}}" class="btn btn-primary">Check all Reservations</a>
+</div>
 <div class="form">
     <form method="POST" action="{{ route('reservation.store')}}">
         @csrf
         <div class="form-group">
-          <div class="form-header">
-            <h4>Thinking about visiting us, Reserve Your Table now !</h4>
-            <a class="btn btn-primary" href="{{route('home')}}">Back Home</a>
-          </div>
           <label for="name">Name :</label>
           <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your full Name">
         </div>
@@ -43,7 +44,6 @@
             <small>Openning Hours are from 9:00 to 22:30</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ route('reservation.index')}}" class="btn btn-primary">Check all Reservations</a>
     </form>
 </div>
 
