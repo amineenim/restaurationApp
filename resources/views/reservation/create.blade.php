@@ -20,11 +20,13 @@
         @csrf
         <div class="form-group">
           <label for="name">Name :</label>
-          <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your full Name">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your full Name"
+          value="{{ Auth::user() ? Auth::user()->name : '' }}">
         </div>
         <div class="form-group">
           <label for="email">Email Adress :</label>
-          <input type="email" name="email" class="form-control" id="email">
+          <input type="email" name="email" class="form-control" id="email"
+          value="{{ Auth::user() ? Auth::user()->email : '' }}">
         </div>
         <div class="form-group">
             <label for="phone">Phone Number :</label>

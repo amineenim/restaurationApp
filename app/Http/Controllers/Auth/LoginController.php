@@ -40,10 +40,42 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * this function handles logging in a user 
+     * it needs to validate data from login form search for the 
+     * corresponding user instance, and last verify if data match record
+     * within database
+     */
+    public function login(Request $request)
+    {
+        //validate data coming from the login form 
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        //if authentication is succesefull
+        if(Auth::attempt($credentials))
+        {
+            //this method accepts an array of key/value pairs
+            //the values in the array will be used to retreive the corresponding user from DB
+            //laravel will automatically hash the user password from login form and compare it with the one in DB 
+            $request->session()->regenerate();
+            return redirect()->intended('home')->with('success','welcome back '.$request->user()->name );
+        }
+
+        return back()
+        ->withErrors(['email' => 'the provided credentials don\'t match our records !'])
+        ->onlyInput('email');
+
+    }
+
+
     /**this function handles
      * logging out a user from the app
      */
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
