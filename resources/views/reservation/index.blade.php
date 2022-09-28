@@ -15,6 +15,7 @@
                 <th scope="col">Guests</th>
                 <th scope="col">Reservation for</th>
                 <th scope="col">Reservation Made</th>
+                <th scope="col">Settings</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,18 @@
                 <td> {{ $reservation->guests}} </td>
                 <td> {{ date('d/m/y',strtotime($reservation->reservationdate)) }} at {{ date('H:i',strtotime($reservation->reservationtime)) }} </td>
                 <td>{{ $reservation->created_at->format('d-m-Y') }}</td>
+                <td>
+                    @can('update',$reservation)
+                    <div class="buttons-section">
+                        <form method="POST" action="{{route('reservation.destroy',$reservation->id)}}"> 
+                            @csrf
+                            <a class="btn btn-success" href="{{route('reservation.edit',$reservation->id)}}">Edit</a>
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                            @method('DELETE')
+                        </form>
+                    </div>    
+                    @endcan
+                </td>
             </tr>
             @endforeach
         </tbody>

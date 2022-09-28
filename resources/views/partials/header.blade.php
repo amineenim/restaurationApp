@@ -19,6 +19,7 @@
     </div>
     <div class="auth-buttons">
       @if(Auth::check())
+      <p>Welcome <strong>{{ Auth::user()->name }}</strong></p>
       <form class="form" method="POST" action="{{route('logout')}}">
         @csrf
         <button class="btn btn-success" type="submit">Logout</button>

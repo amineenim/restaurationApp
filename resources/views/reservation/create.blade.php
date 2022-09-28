@@ -13,7 +13,9 @@
 <div class="form-header">
   <h4>Thinking about visiting us, Reserve Your Table now !</h4>
   <a class="btn btn-primary" href="{{route('home')}}">Back Home</a>
+  @auth
   <a href="{{ route('reservation.index')}}" class="btn btn-primary">Check all Reservations</a>
+  @endauth
 </div>
 <div class="form">
     <form method="POST" action="{{ route('reservation.store')}}">
